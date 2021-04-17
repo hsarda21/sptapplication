@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -23,4 +26,7 @@ public class Person extends BaseEntity
     private String email;
     private String gender;
     private AccessLevel accesslevel;
+
+    @ManyToMany(mappedBy = "people")
+    private Set<Category> categories = new HashSet<>();
 }
